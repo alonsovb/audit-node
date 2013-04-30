@@ -1,6 +1,8 @@
-var http = require('http'),
-	path = require('path'),
-	fs = require('fs');
+var http  = require('http'),
+	path  = require('path'),
+	fs    = require('fs'),
+	url   = require('url'),
+	model = require('./model.js');
 
 fs.readFile('./index.html', function (err, html) {
 	if (err) {
@@ -8,9 +10,34 @@ fs.readFile('./index.html', function (err, html) {
 	}
 	http.createServer(function(request, response) {
 
+		// Database section
+		var pathName = url.parse(request.url).pathname,
+			query    = url.parse(request.url, true).query;
+		if (pathName == '/db')
+		{
+			if (query['do'] !== null)
+				switch(query['do']) {
+					case 'validate':
+						var user = query['user'],
+							pass = query['pass'];
+						if (user !== null && pass !== null) {
+							model.validate(user, pass, function(err, data) {
+								response.writeHead(200, { 'Content-Type': 'text/plain' });
+								if (err || !data || Object.keys(data).length < 1)
+									response.end('false', 'utf-8');
+								else {
+									response.end('true', 'utf-8');
+								}
+							});
+						}
+						break;
+				}
+			return;
+		}
+
 		var filePath = '.' + request.url;
 		if (filePath == './')
-			filePath = './index.htm';
+			filePath = './index.html';
 
 		var extname = path.extname(filePath);
 		var contentType = 'text/html';

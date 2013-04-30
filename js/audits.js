@@ -209,6 +209,25 @@ $(function() {
 		$room        = $('#n-room'),
 		selHQ, selBuild, selRoom;
 
+	$('#button-login').on('click', function(e) {
+		e.preventDefault();
+		var $loginname = $('#login-name'),
+			$loginpass = $('#login-pass');
+		$.ajax({
+			url: 'db?do=validate' +
+				'&user=' + $loginname.val() +
+				'&pass=' + $loginpass.val()
+		}).done(function (data) {
+			if (data === 'true')
+			{
+				var currentPage = window.location.href.split('#')[0];
+				window.location.href = currentPage + '#main';
+			}
+			else
+				alert('Las credenciales no son válidas');
+		});
+	});
+
 	// Events on main page
 	$('#main').on('pageinit', function() {
 
