@@ -55,6 +55,12 @@ fs.readFile('./index.html', function (err, html) {
 			case '.css':
 				contentType = 'text/css';
 				break;
+			case '.png':
+				contentType = 'image/png';
+				break;
+			case '.gif':
+				contentType = 'image/gif';
+				break;
 		}
 
 		fs.exists(filePath, function(exists) {
