@@ -108,3 +108,11 @@ db.hqs.insert(
 	}]
 );
 
+db.users.insert({
+	"name": "alonso",
+	"pass": "1234"
+});
+db.users.insert({
+	"name": "gabriel",
+	"pass": "1234"
+});
