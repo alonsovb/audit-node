@@ -1,6 +1,6 @@
 // connection params
 var databaseURL = "mongodb://localhost/audits",
-	collections = ["audits", "users"],
+	collections = ["audits", "users", "hqs"],
 	db          = require('mongojs').connect(databaseURL, collections);
 
 function validate(user, pass, callback) {
@@ -9,4 +9,11 @@ function validate(user, pass, callback) {
 	});
 }
 
+function getHQ(callback) {
+	db.hqs.find({}, function(err, data) {
+		callback(err, data);
+	});
+}
+
 exports.validate = validate;
+exports.getHQ    = getHQ;

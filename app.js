@@ -31,6 +31,13 @@ fs.readFile('./index.html', function (err, html) {
 							});
 						}
 						break;
+					case 'getHQ':
+						model.getHQ(function (err, data) {
+							if (err || !data || Object.keys(data).length < 1)
+								response.end('false', 'utf-8');
+							else
+								response.end(JSON.stringify(data), 'utf-8');
+						});
 				}
 			return;
 		}
