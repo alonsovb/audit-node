@@ -136,6 +136,7 @@ $(function() {
 					text: hqs[i].name
 				});
 				$headquarter.append(newHQ);
+				console.log(hqs[i]._id);
 			}
 		});
 
@@ -219,23 +220,31 @@ $(function() {
 
 		// Create new audit
 		$('#n-create').on('click', function() {
-			var newAudit;
-
-			newAudit  = new Audit(selHQ, selBuild, selRoom);
+			var newAudit  = new Audit(selHQ, selBuild, selRoom);
 
 			// Create some sample assets
-			newAudit.assets = sampleAssets(5, 12);
+			/*newAudit.assets = sampleAssets(5, 12);
 			// Add audit to main list
-			audits.push(newAudit);
+			audits.push(newAudit);*/
 			// Make it the current audit
 			currentAudit = newAudit;
-
-			// Clean adding inputs
-			$building.selectmenu('disable');
-			$room.selectmenu('disable');
-			$('#n-create').button('disable');
-			$('#n-panel').trigger('collapse');
-			window.location.href = '#audit';
+			$.ajax({
+				url: 'db?do=audit'
+				+'&hq=' + $headquarter.val() 
+				+'&building=' + $building.val() 
+				+'&room=' + $room.val()
+			}).done(function(data) {
+				if (data === 'true'){
+					// Clean adding inputs
+					$building.selectmenu('disable');
+					$room.selectmenu('disable');
+					$('#n-create').button('disable');
+					$('#n-panel').trigger('collapse');
+					window.location.href = '#audit';
+				}
+				else
+					window.location.href = '#main';
+			});
 		});
 	});
 
@@ -359,7 +368,16 @@ $(function() {
 		$list.append($divider.replace(/{{text}}/ig, 'Done').replace(/{{id}}/ig, 'h-done'));
 		var $current = $('#h-current'),
 			$done    = $('#h-done');
-
+		// Ajax method here, to load audits from db and set audits global var
+		$.ajax({
+			url: 'db?do=getAudits', 
+			async: false
+		}).done(function (data) {
+			if (data === 'true')
+			{
+				audits = data;
+			}
+		});
 		// Show list of audits
 		for (var index in audits) {
 			var audit = audits[index],

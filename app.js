@@ -38,6 +38,28 @@ fs.readFile('./index.html', function (err, html) {
 							else
 								response.end(JSON.stringify(data), 'utf-8');
 						});
+						break;
+					case 'getAudits':
+						model.getHQ(function (err, data) {
+							if (err || !data || Object.keys(data).length < 1)
+								response.end('false', 'utf-8');
+							else
+								response.end(JSON.stringify(data), 'utf-8');
+						});
+						break;
+					case 'audit':
+						var hq = query['hq'],
+							building = query['building'],
+							room = query['room'];
+						model.newAudit(hq,building, room,function (err,data){
+							if (err || !data || Object.keys(data).length < 1){
+								response.end('false', 'utf-8');
+							}
+							else{
+								response.end('true', 'utf-8');
+							}
+						});
+						break;
 				}
 			return;
 		}
