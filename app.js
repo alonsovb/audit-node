@@ -60,6 +60,28 @@ fs.readFile('./index.html', function (err, html) {
 							}
 						});
 						break;
+					case 'save':
+						var auditString = query['audit'],
+							auditObject = eval( "(" + auditString + ")" );
+						model.saveAudit(auditObject, function (err, data) {
+							if (err || !data || Object.keys(data).length < 1){
+								response.end('false', 'utf-8');
+							}
+							else{
+								response.end('true', 'utf-8');
+							}
+						});
+						break;
+					case 'remove':
+						var id = query['id'];
+						model.removeAudit(id, function(err, data) {
+							if (err || !data || Object.keys(data).length < 1){
+								response.end('false', 'utf-8');
+							}
+							else{
+								response.end('true', 'utf-8');
+							}
+						});
 				}
 			return;
 		}

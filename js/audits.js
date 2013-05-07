@@ -229,10 +229,10 @@ $(function() {
 			// Make it the current audit
 			currentAudit = newAudit;
 			$.ajax({
-				url: 'db?do=audit'
-				+'&hq=' + $headquarter.val() 
-				+'&building=' + $building.val() 
-				+'&room=' + $room.val()
+				url: 'db?do=audit' +
+				'&hq=' + $headquarter.val() +
+				'&building=' + $building.val() +
+				'&room=' + $room.val()
 			}).done(function(data) {
 				if (data === 'true'){
 					// Clean adding inputs

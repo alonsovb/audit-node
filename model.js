@@ -30,19 +30,31 @@ function getAudits(callback){
 	this.completed = false;
 }*/
 
-function newAudit(headquarter, building, room,callback){
+function newAudit(headquarter, building, room, callback){
 	var date = new Date(); // Current date on server
 	//var audit = new Audit(headquarter, building, room);
 	db.audits.save({'date': date, 'hq': headquarter, 'building': building,
-	 'room': room, 'assests': [], 'comment': '', 'completed': false}, function(err, data){
-	 	callback(err,data);
-	 });
+	'room': room, 'assests': [], 'comment': '', 'completed': false}, function(err, data){
+		callback(err,data);
+	});
 	/*db.audits.save(audit, function(err,data){
 		callback(err,data);
 	});*/
 }
 
-exports.validate = validate;
-exports.getHQ    = getHQ;
-exports.newAudit = newAudit;
-exports.getAudits = getAudits;
+function saveAudit(audit, callback) {
+	db.audits.save(autid, function(err, data) {
+		callback(err, data);
+	});
+}
+
+function removeAudit(id, callback) {
+	// TODO
+}
+
+exports.validate    = validate;
+exports.getHQ       = getHQ;
+exports.getAudits   = getAudits;
+exports.newAudit    = newAudit;
+exports.saveAudit   = saveAudit;
+exports.removeAudit = removeAudit;
