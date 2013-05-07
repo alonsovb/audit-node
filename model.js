@@ -27,13 +27,8 @@ function getAssets(callback){
 
 function newAudit(headquarter, building, room, callback){
 	var date = new Date(); // Current date on server
-<<<<<<< HEAD
-	//var audit = new Audit(headquarter, building, room);
-	db.audits.save({'date': date, 'hq': headquarter, 'building': building,
-=======
 	var assets = getAssets(headquarter, building, room);
 	db.audits.insert({'date': date, 'hq': headquarter, 'building': building,
->>>>>>> Tmp commit
 	'room': room, 'assets': [], 'comment': '', 'completed': false}, function(err, data){
 		callback(err,data);
 	});
