@@ -34,7 +34,7 @@ function newAudit(headquarter, building, room, callback){
 	var date = new Date(); // Current date on server
 	//var audit = new Audit(headquarter, building, room);
 	db.audits.save({'date': date, 'hq': headquarter, 'building': building,
-	'room': room, 'assests': [], 'comment': '', 'completed': false}, function(err, data){
+	'room': room, 'assets': [], 'comment': '', 'completed': false}, function(err, data){
 		callback(err,data);
 	});
 	/*db.audits.save(audit, function(err,data){

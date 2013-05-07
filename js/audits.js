@@ -136,7 +136,6 @@ $(function() {
 					text: hqs[i].name
 				});
 				$headquarter.append(newHQ);
-				console.log(hqs[i]._id);
 			}
 		});
 
@@ -370,18 +369,20 @@ $(function() {
 			$done    = $('#h-done');
 		// Ajax method here, to load audits from db and set audits global var
 		$.ajax({
-			url: 'db?do=getAudits', 
+			url: 'db?do=getAudits',
 			async: false
 		}).done(function (data) {
-			if (data === 'true')
+			if (data !== 'false')
 			{
-				audits = data;
+				audits = eval("("+data+")");
 			}
 		});
 		// Show list of audits
 		for (var index in audits) {
-			var audit = audits[index],
-				item = $('<li>', {
+			var audit = audits[index];
+			// Override date from string to moment object
+			audit.date = moment(audit.date);
+			var item = $('<li>', {
 					class: 'audit-li'
 				}),
 				link = $('<a>', {
@@ -394,10 +395,10 @@ $(function() {
 					text: audits[index].assets.length
 				}),
 				title = $('<h2>', {
-					text: audit.room.name
+					text: audit.room
 				}),
 				direction = $('<p>').append($('<strong>', {
-					text: audit.hq.name + ', ' + audit.building.name
+					text: audit.hq + ', ' + audit.building
 				})),
 				description = $('<p>', {
 					text: 'Total assets: ' + audit.assets.length +

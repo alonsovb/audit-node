@@ -40,7 +40,7 @@ fs.readFile('./index.html', function (err, html) {
 						});
 						break;
 					case 'getAudits':
-						model.getHQ(function (err, data) {
+						model.getAudits(function (err, data) {
 							if (err || !data || Object.keys(data).length < 1)
 								response.end('false', 'utf-8');
 							else
