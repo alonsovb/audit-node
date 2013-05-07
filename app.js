@@ -52,19 +52,21 @@ fs.readFile('./index.html', function (err, html) {
 							building = query['building'],
 							room = query['room'];
 						model.newAudit(hq,building, room,function (err,data){
+							console.log(data);
 							if (err || !data || Object.keys(data).length < 1){
 								response.end('false', 'utf-8');
 							}
 							else{
-								response.end('true', 'utf-8');
+								response.end(JSON.stringify(data), 'utf-8');
 							}
 						});
 						break;
 					case 'save':
 						var auditString = query['audit'],
 							auditObject = eval( "(" + auditString + ")" );
+							console.log(auditObject);
 						model.saveAudit(auditObject, function (err, data) {
-							if (err || !data || Object.keys(data).length < 1){
+							if (err || !data){
 								response.end('false', 'utf-8');
 							}
 							else{
@@ -82,6 +84,7 @@ fs.readFile('./index.html', function (err, html) {
 								response.end('true', 'utf-8');
 							}
 						});
+
 				}
 			return;
 		}

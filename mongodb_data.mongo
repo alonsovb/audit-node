@@ -7,57 +7,57 @@ db.hqs.insert(
 			name: "Reception",
 			floor: 2,
 			assets: [
-				{_id: 40100, state: 'good'},
-				{_id: 40101, state: 'good'},
-				{_id: 40102, state: 'good'},
-				{_id: 40103, state: 'good'},
-				{_id: 40104, state: 'good'},
-				{_id: 40105, state: 'good'}
+				{_id: 40100},
+				{_id: 40101},
+				{_id: 40102},
+				{_id: 40103},
+				{_id: 40104},
+				{_id: 40105}
 			]
 		}, {
 			name: "Director's Office",
 			floor: 2,
 			assets: [
-				{_id: 40106, state: 'good'},
-				{_id: 40107, state: 'good'},
-				{_id: 40108, state: 'good'},
-				{_id: 40109, state: 'good'},
-				{_id: 40110, state: 'good'},
-				{_id: 40111, state: 'good'}
+				{_id: 40106},
+				{_id: 40107},
+				{_id: 40108},
+				{_id: 40109},
+				{_id: 40110},
+				{_id: 40111}
 			]
 		}, {
 			name: "Tech Support",
 			floor: 1,
 			assets: [
-				{_id: 40112, state: 'good'},
-				{_id: 40113, state: 'good'},
-				{_id: 40114, state: 'good'},
-				{_id: 40115, state: 'good'},
-				{_id: 40116, state: 'good'},
-				{_id: 40117, state: 'good'}
+				{_id: 40112},
+				{_id: 40113},
+				{_id: 40114},
+				{_id: 40115},
+				{_id: 40116},
+				{_id: 40117}
 			]
 		}, {
 			name: "FundaTec",
 			floor: 1,
 			assets: [
-				{_id: 40118, state: 'good'},
-				{_id: 40119, state: 'good'},
-				{_id: 40120, state: 'good'},
-				{_id: 40121, state: 'good'},
-				{_id: 40122, state: 'good'},
-				{_id: 40123, state: 'good'},
-				{_id: 40124, state: 'good'}
+				{_id: 40118},
+				{_id: 40119},
+				{_id: 40120},
+				{_id: 40121},
+				{_id: 40122},
+				{_id: 40123},
+				{_id: 40124}
 			]
 		}, {
 			name: "Administration Dept.",
 			floor: 2,
 			assets: [
-				{_id: 40125, state: 'good'},
-				{_id: 40126, state: 'good'},
-				{_id: 40127, state: 'good'},
-				{_id: 40128, state: 'good'},
-				{_id: 40129, state: 'good'},
-				{_id: 40130, state: 'good'}
+				{_id: 40125},
+				{_id: 40126},
+				{_id: 40127},
+				{_id: 40128},
+				{_id: 40129},
+				{_id: 40130}
 			]
 		}]
 	}, {
@@ -66,36 +66,36 @@ db.hqs.insert(
 			name: "Cooking",
 			floor: 1,
 			assets: [
-				{_id: 40131, state: 'good'},
-				{_id: 40132, state: 'good'},
-				{_id: 40133, state: 'good'},
-				{_id: 40134, state: 'good'},
-				{_id: 40135, state: 'good'},
-				{_id: 40136, state: 'good'},
-				{_id: 40137, state: 'good'}
+				{_id: 40131},
+				{_id: 40132},
+				{_id: 40133},
+				{_id: 40134},
+				{_id: 40135},
+				{_id: 40136},
+				{_id: 40137}
 			]
 		}, {
 			name: "Dinning Hall",
 			floor: 1,
 			assets: [
-				{_id: 40138, state: 'good'},
-				{_id: 40139, state: 'good'},
-				{_id: 40140, state: 'good'},
-				{_id: 40141, state: 'good'},
-				{_id: 40142, state: 'good'},
-				{_id: 40143, state: 'good'},
-				{_id: 40144, state: 'good'},
-				{_id: 40145, state: 'good'}
+				{_id: 40138},
+				{_id: 40139},
+				{_id: 40140},
+				{_id: 40141},
+				{_id: 40142},
+				{_id: 40143},
+				{_id: 40144},
+				{_id: 40145}
 			]
 		}, {
 			name: "Soda",
 			floor: 1,
 			assets: [
-				{_id: 40146, state: 'good'},
-				{_id: 40147, state: 'good'},
-				{_id: 40148, state: 'good'},
-				{_id: 40149, state: 'good'},
-				{_id: 40150, state: 'good'}
+				{_id: 40146},
+				{_id: 40147},
+				{_id: 40148},
+				{_id: 40149},
+				{_id: 40150}
 			]
 		}]
 	}, {
@@ -104,109 +104,109 @@ db.hqs.insert(
 			name: "Compupter Engineering Dept.",
 			floor: 2,
 			assets: [
-				{_id: 40151, state: 'good'},
-				{_id: 40152, state: 'good'},
-				{_id: 40153, state: 'good'},
-				{_id: 40154, state: 'good'}
+				{_id: 40151},
+				{_id: 40152},
+				{_id: 40153},
+				{_id: 40154}
 			]
 
 		}, {
 			name: "Classroom 3",
 			floor: 2,
 			assets: [
-				{_id: 40155, state: 'good'},
-				{_id: 40156, state: 'good'},
-				{_id: 40157, state: 'good'},
-				{_id: 40158, state: 'good'}
+				{_id: 40155},
+				{_id: 40156},
+				{_id: 40157},
+				{_id: 40158}
 			]
 		}, {
 			name: "Classroom 4",
 			floor: 2,
 			assets: [
-				{_id: 40159, state: 'good'},
-				{_id: 40160, state: 'good'},
-				{_id: 40161, state: 'good'},
-				{_id: 40162, state: 'good'}
+				{_id: 40159},
+				{_id: 40160},
+				{_id: 40161},
+				{_id: 40162}
 			]
 		}, {
 			name: "Classroom 5",
 			floor: 2,
 			assets: [
-				{_id: 40163, state: 'good'},
-				{_id: 40164, state: 'good'},
-				{_id: 40165, state: 'good'}
+				{_id: 40163},
+				{_id: 40164},
+				{_id: 40165}
 			]
 		}, {
 			name: "Classroom 6",
 			floor: 2,
 			assets: [
-				{_id: 40166, state: 'good'},
-				{_id: 40167, state: 'good'},
-				{_id: 40168, state: 'good'},
-				{_id: 40169, state: 'good'}
+				{_id: 40166},
+				{_id: 40167},
+				{_id: 40168},
+				{_id: 40169}
 			]
 		}, {
 			name: "Classroom 7",
 			floor: 2,
 			assets: [
-				{_id: 40170, state: 'good'},
-				{_id: 40171, state: 'good'}
+				{_id: 40170},
+				{_id: 40171}
 			]
 		}, {
 			name: "Classroom 8",
 			floor: 2,
 			assets: [
-				{_id: 40172, state: 'good'},
-				{_id: 40173, state: 'good'},
-				{_id: 40174, state: 'good'},
-				{_id: 40175, state: 'good'},
+				{_id: 40172},
+				{_id: 40173},
+				{_id: 40174},
+				{_id: 40175},
 			]
 		}, {
 			name: "Classroom 9",
 			floor: 2,
 			assets: [
-				{_id: 40176, state: 'good'},
-				{_id: 40177, state: 'good'},
-				{_id: 40178, state: 'good'},
-				{_id: 40179, state: 'good'},
-				{_id: 40180, state: 'good'},
-				{_id: 40181, state: 'good'},
-				{_id: 40182, state: 'good'},
-				{_id: 40183, state: 'good'}
+				{_id: 40176},
+				{_id: 40177},
+				{_id: 40178},
+				{_id: 40179},
+				{_id: 40180},
+				{_id: 40181},
+				{_id: 40182},
+				{_id: 40183}
 			]
 		}, {
 			name: "Classroom 10",
 			floor: 2,
 			assets: [
-				{_id: 40184, state: 'good'},
-				{_id: 40185, state: 'good'},
-				{_id: 40186, state: 'good'},
-				{_id: 40187, state: 'good'},
-				{_id: 40188, state: 'good'},
-				{_id: 40189, state: 'good'}
+				{_id: 40184},
+				{_id: 40185},
+				{_id: 40186},
+				{_id: 40187},
+				{_id: 40188},
+				{_id: 40189}
 			]
 		}, {
 			name: "Science and letters Dept.",
 			floor: 2,
 			assets: [
-				{_id: 40190, state: 'good'},
-				{_id: 40191, state: 'good'},
-				{_id: 40192, state: 'good'},
-				{_id: 40193, state: 'good'}
+				{_id: 40190},
+				{_id: 40191},
+				{_id: 40192},
+				{_id: 40193}
 				]
 			
 		}, {
 			name: "Agronomy's lab",
 			floor: 1,
 			assets: [
-				{_id: 40194, state: 'good'},
-				{_id: 40195, state: 'good'},
-				{_id: 40196, state: 'good'},
-				{_id: 40197, state: 'good'}
+				{_id: 40194},
+				{_id: 40195},
+				{_id: 40196},
+				{_id: 40197}
 			]
 		}]
 	}]
-	}, {s
+	}, {
 		name: 'Sede Central',
 		buildings: [{
 			name: 'Dinning Hall',
@@ -214,10 +214,10 @@ db.hqs.insert(
 				name: "Cooking",
 				floor: 1,
 				assets: [
-					{_id: 40198, state: 'good'},
-					{_id: 40199, state: 'good'},
-					{_id: 40200, state: 'good'},
-					{_id: 40201, state: 'good'}
+					{_id: 40198},
+					{_id: 40199},
+					{_id: 40200},
+					{_id: 40201}
 				]
 			}]
 		},
@@ -227,21 +227,21 @@ db.hqs.insert(
 				name: 'Reception',
 				floor: 1,
 				assets: [
-					{_id: 40202, state: 'good'},
-					{_id: 40203, state: 'good'},
-					{_id: 40204, state: 'good'},
-					{_id: 40205, state: 'good'},
-					{_id: 40206, state: 'good'},
-					{_id: 40207, state: 'good'}
+					{_id: 40202},
+					{_id: 40203},
+					{_id: 40204},
+					{_id: 40205},
+					{_id: 40206},
+					{_id: 40207}
 				]
 			}, {
 				name: 'Gerency',
 				floor: 2,
 				assets: [
-					{_id: 40208, state: 'good'},
-					{_id: 40209, state: 'good'},
-					{_id: 40210, state: 'good'},
-					{_id: 40211, state: 'good'}
+					{_id: 40208},
+					{_id: 40209},
+					{_id: 40210},
+					{_id: 40211}
 				]
 			}]
 		}]
@@ -253,10 +253,10 @@ db.hqs.insert(
 				name: "Meeting Room",
 				floor: 1,
 				assets: [
-					{_id: 40212, state: 'good'},
-					{_id: 40213, state: 'good'},
-					{_id: 40214, state: 'good'},
-					{_id: 40215, state: 'good'}
+					{_id: 40212},
+					{_id: 40213},
+					{_id: 40214},
+					{_id: 40215}
 				]
 			}]
 		}, {
@@ -265,25 +265,25 @@ db.hqs.insert(
 				name: "Director's Office",
 				floor: 1,
 				assets: [
-					{_id: 40216, state: 'good'},
-					{_id: 40217, state: 'good'},
-					{_id: 40218, state: 'good'},
-					{_id: 40219, state: 'good'},
-					{_id: 40220, state: 'good'},
-					{_id: 40221, state: 'good'},
-					{_id: 40222, state: 'good'},
-					{_id: 40223, state: 'good'}
+					{_id: 40216},
+					{_id: 40217},
+					{_id: 40218},
+					{_id: 40219},
+					{_id: 40220},
+					{_id: 40221},
+					{_id: 40222},
+					{_id: 40223}
 				]
 			}, {
 				name: "Reception",
 				floor: 1,
 				assets: [
-					{_id: 40224, state: 'good'},
-					{_id: 40225, state: 'good'},
-					{_id: 40226, state: 'good'},
-					{_id: 40227, state: 'good'},
-					{_id: 40228, state: 'good'},
-					{_id: 40229, state: 'good'}
+					{_id: 40224},
+					{_id: 40225},
+					{_id: 40226},
+					{_id: 40227},
+					{_id: 40228},
+					{_id: 40229}
 				]
 			}]
 		}]

@@ -21,26 +21,46 @@ function getAudits(callback){
 	});
 }
 
-function getAssets(callback){
-	db.hqs.find();
+function getAssets(headquarter, building, room, callback){
+	getHQ(function(err,hqs) {
+		for (var hq in hqs){
+			if(hqs[hq].name === 'Sede San Carlos'){
+				for (var bd in hqs[hq].buildings){
+					if(hqs[hq].buildings[bd].name === 'Dinning Hall'){
+						for(var rm in hqs[hq].buildings[bd].rooms){
+							if(hqs[hq].buildings[bd].rooms[rm].name === 'Soda'){
+								callback(hqs[hq].buildings[bd].rooms[rm].assets);
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+	});
 }
 
 function newAudit(headquarter, building, room, callback){
 	var date = new Date(); // Current date on server
-<<<<<<< HEAD
-	//var audit = new Audit(headquarter, building, room);
-	db.audits.save({'date': date, 'hq': headquarter, 'building': building,
-=======
-	var assets = getAssets(headquarter, building, room);
-	db.audits.insert({'date': date, 'hq': headquarter, 'building': building,
->>>>>>> Tmp commit
-	'room': room, 'assets': [], 'comment': '', 'completed': false}, function(err, data){
-		callback(err,data);
+	console.log('new audit model');
+	getAssets(headquarter, building, room, function (assets) {
+		for(var asset in assets){
+			assets[asset].state   = 1;
+			assets[asset].present = true;
+			assets[asset].score   = 10;
+			assets[asset].comment = '';
+		}
+		var audit = {'date': date, 'hq': headquarter, 'building': building,
+		'room': room, 'assets': assets, 'comment': '', 'completed': false};
+		db.audits.insert(audit, function(err, data){
+			callback(err,audit);
+		});
 	});
+	
 }
 
 function saveAudit(audit, callback) {
-	db.audits.save(autid, function(err, data) {
+	db.audits.save(audit, function(err, data) {
 		callback(err, data);
 	});
 }

@@ -32,10 +32,10 @@ function Asset(state, score) {
 	this.comment = '';
 }
 
-function getAuditById(id, audit) {
+function getAssetById(id, audit) {
 	var assets = audit.assets;
 	for (var index in assets) {
-		if (assets[index].id === id) {
+		if (assets[index]._id === id) {
 			return assets[index];
 		}
 	}
@@ -130,7 +130,6 @@ $(function() {
 			url: 'db?do=getHQ'
 		}).done(function(data) {
 			hqs = eval("("+data+")");
-
 			for (var i in hqs) {
 				var newHQ = $('<option>', {
 					text: hqs[i].name
@@ -219,26 +218,24 @@ $(function() {
 
 		// Create new audit
 		$('#n-create').on('click', function() {
-			var newAudit  = new Audit(selHQ, selBuild, selRoom);
-
 			// Create some sample assets
 			/*newAudit.assets = sampleAssets(5, 12);
 			// Add audit to main list
 			audits.push(newAudit);*/
 			// Make it the current audit
-			currentAudit = newAudit;
 			$.ajax({
 				url: 'db?do=audit' +
 				'&hq=' + $headquarter.val() +
 				'&building=' + $building.val() +
 				'&room=' + $room.val()
 			}).done(function(data) {
-				if (data === 'true'){
+				if (data !== 'false'){
 					// Clean adding inputs
 					$building.selectmenu('disable');
 					$room.selectmenu('disable');
 					$('#n-create').button('disable');
 					$('#n-panel').trigger('collapse');
+					currentAudit = eval("("+data+")");
 					window.location.href = '#audit';
 				}
 				else
@@ -257,9 +254,9 @@ $(function() {
 		}
 
 		$('#audit-info').text(
-				currentAudit.hq.name + ', ' +
-				currentAudit.building.name + ', ' +
-				currentAudit.room.name);
+				currentAudit.hq + ', ' +
+				currentAudit.building + ', ' +
+				currentAudit.room);
 
 		var template = $.trim($('#asset-item-template').html()),
 			content  = '',
@@ -271,7 +268,7 @@ $(function() {
 
 		// Fill asset list by templating
 		$.each(currentAudit.assets, function (index, obj) {
-			var text = template.replace( /{{id}}/ig, obj.id );
+			var text = template.replace( /{{id}}/ig, obj._id);
 				text = text.replace(/{{score}}/ig, obj.score);
 			if (!obj.present)
 				text = text.replace('checked="true"', '');
@@ -308,25 +305,25 @@ $(function() {
 		$('.inroom').on('change', function () {
 			var $this = $(this),
 				id = $this.closest('.asset-container').data('id'),
-				asset = getAuditById(id, currentAudit);
+				asset = getAssetById(id, currentAudit);
 			asset.present = this.checked;
 		});
 		$('.score').on('change', function () {
 			var $this = $(this),
 				id = $this.closest('.asset-container').data('id'),
-				asset = getAuditById(id, currentAudit);
+				asset = getAssetById(id, currentAudit);
 			asset.score = parseInt($this.val(), 10);
 		});
 		$('.state').on('change', function () {
 			var $this = $(this),
 				id = $this.closest('.asset-container').data('id'),
-				asset = getAuditById(id, currentAudit);
+				asset = getAssetById(id, currentAudit);
 			asset.state = $this.val();
 		});
 		$('.comment').on('change', function () {
 			var $this = $(this),
 				id = $this.closest('.asset-container').data('id'),
-				asset = getAuditById(id, currentAudit);
+				asset = getAssetById(id, currentAudit);
 			asset.comment = $this.val();
 		});
 
@@ -334,10 +331,22 @@ $(function() {
 			var comment  = $comment.val();
 			currentAudit.comment = comment;
 			currentAudit.completed = true;
+			$.ajax({
+				url:'db?do=save&audit='+ 
+				JSON.stringify(currentAudit)
+			}).done(function(data){
+				console.log(data);
+			});
 		});
 		$('#n-save').on('click', function () {
 			var comment  = $comment.val();
 			currentAudit.comment = comment;
+			$.ajax({
+				url:'db?do=save&audit='+ 
+				JSON.stringify(currentAudit)
+			}).done(function(data){
+				console.log(data);
+			});
 		});
 		$('#n-delete').on('click', function (e) {
 			if (currentAudit === undefined)
