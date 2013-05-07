@@ -20,26 +20,23 @@ function getAudits(callback){
 		callback(err, data);
 	});
 }
-/*function Audit(headquarter, building, room) {
-	this.date      = new Date();
-	this.hq        = headquarter;
-	this.building  = building;
-	this.room      = room;
-	this.assets    = [];
-	this.comment   = '';
-	this.completed = false;
-}*/
+
+function getAssets(callback){
+	db.hqs.find();
+}
 
 function newAudit(headquarter, building, room, callback){
 	var date = new Date(); // Current date on server
+<<<<<<< HEAD
 	//var audit = new Audit(headquarter, building, room);
 	db.audits.save({'date': date, 'hq': headquarter, 'building': building,
+=======
+	var assets = getAssets(headquarter, building, room);
+	db.audits.insert({'date': date, 'hq': headquarter, 'building': building,
+>>>>>>> Tmp commit
 	'room': room, 'assets': [], 'comment': '', 'completed': false}, function(err, data){
 		callback(err,data);
 	});
-	/*db.audits.save(audit, function(err,data){
-		callback(err,data);
-	});*/
 }
 
 function saveAudit(audit, callback) {
