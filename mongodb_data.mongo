@@ -206,7 +206,7 @@ db.hqs.insert(
 			]
 		}]
 	}]
-	}, {s
+	}, {
 		name: 'Sede Central',
 		buildings: [{
 			name: 'Dinning Hall',
@@ -290,11 +290,13 @@ db.hqs.insert(
 	}]
 );
 
-db.users.insert({
+db.users.save({
+	"_id":  "1",
 	"name": "alonso",
 	"pass": "1234"
 });
-db.users.insert({
+db.users.save({
+	"_id":  "2",
 	"name": "gabriel",
 	"pass": "1234"
 });
