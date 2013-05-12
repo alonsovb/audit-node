@@ -52,7 +52,6 @@ fs.readFile('./index.html', function (err, html) {
 							building = query['building'],
 							room = query['room'];
 						model.newAudit(hq,building, room,function (err,data){
-							console.log(data);
 							if (err || !data || Object.keys(data).length < 1){
 								response.end('false', 'utf-8');
 							}
@@ -64,7 +63,6 @@ fs.readFile('./index.html', function (err, html) {
 					case 'save':
 						var auditString = query['audit'],
 							auditObject = eval( "(" + auditString + ")" );
-							console.log(auditObject);
 						model.saveAudit(auditObject, function (err, data) {
 							if (err || !data){
 								response.end('false', 'utf-8');
@@ -77,14 +75,13 @@ fs.readFile('./index.html', function (err, html) {
 					case 'remove':
 						var id = query['id'];
 						model.removeAudit(id, function(err, data) {
-							if (err || !data || Object.keys(data).length < 1){
+							if (err || !data){
 								response.end('false', 'utf-8');
 							}
 							else{
 								response.end('true', 'utf-8');
 							}
 						});
-
 				}
 			return;
 		}
@@ -116,7 +113,6 @@ fs.readFile('./index.html', function (err, html) {
 				fs.readFile(filePath, function(error, content) {
 					if (error) {
 						response.writeHead(500);
-						console.log('Error 500');
 						response.end();
 					}
 					else {

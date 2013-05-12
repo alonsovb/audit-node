@@ -42,7 +42,6 @@ function getAssets(headquarter, building, room, callback){
 
 function newAudit(headquarter, building, room, callback){
 	var date = new Date(); // Current date on server
-	console.log('new audit model');
 	getAssets(headquarter, building, room, function (assets) {
 		for(var asset in assets){
 			assets[asset].state   = 1;
@@ -50,9 +49,11 @@ function newAudit(headquarter, building, room, callback){
 			assets[asset].score   = 10;
 			assets[asset].comment = '';
 		}
+		var id = Math.floor(Math.random()*65536);
 		var audit = {'date': date, 'hq': headquarter, 'building': building,
-		'room': room, 'assets': assets, 'comment': '', 'completed': false};
-		db.audits.insert(audit, function(err, data){
+			'room': room, 'assets': assets, 'comment': '', 'completed': false,
+			'_id': id};
+		db.audits.save(audit, function(err, data){
 			callback(err,audit);
 		});
 	});
@@ -66,7 +67,11 @@ function saveAudit(audit, callback) {
 }
 
 function removeAudit(id, callback) {
-	// TODO
+	db.audits.remove({
+		'_id': parseInt(id, 10)
+	}, true, function(err, data) {
+		callback(err, data);
+	});
 }
 
 exports.validate    = validate;

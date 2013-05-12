@@ -335,7 +335,7 @@ $(function() {
 				url:'db?do=save&audit='+ 
 				JSON.stringify(currentAudit)
 			}).done(function(data){
-				console.log(data);
+				
 			});
 		});
 		$('#n-save').on('click', function () {
@@ -345,7 +345,7 @@ $(function() {
 				url:'db?do=save&audit='+ 
 				JSON.stringify(currentAudit)
 			}).done(function(data){
-				console.log(data);
+				
 			});
 		});
 		$('#n-delete').on('click', function (e) {
@@ -466,13 +466,24 @@ $(function() {
 		var answer = confirm('Do you really want to remove this audit?');
 		if ( answer ) {
 			// Remove from data
-			var auditIndex = parseInt(li.children('a.audit').data('index'), 10);
-			audits.splice(auditIndex, 1);
-			currentAudit = undefined;
+			var $lidata = li.find('a.audit');
+			var auditIndex = parseInt($lidata.data('index'), 10);
+			var id = audits[auditIndex]._id;
 
-			// Remove list item
-			li.remove();
-			$list.listview('refresh');
+			// Remove from database
+			$.ajax({
+				url: 'db?do=remove' +
+					'&id=' + id
+			}).done(function(data) {
+				if (data === 'true') {
+					audits.splice(auditIndex, 1);
+					currentAudit = undefined;
+
+					// Remove list item
+					li.remove();
+					$list.listview('refresh');
+				}
+			});
 		}
 	}
 	});
