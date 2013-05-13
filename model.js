@@ -24,11 +24,11 @@ function getAudits(callback){
 function getAssets(headquarter, building, room, callback){
 	getHQ(function(err,hqs) {
 		for (var hq in hqs){
-			if(hqs[hq].name === 'Sede San Carlos'){
+			if(hqs[hq].name === headquarter){
 				for (var bd in hqs[hq].buildings){
-					if(hqs[hq].buildings[bd].name === 'Dinning Hall'){
+					if(hqs[hq].buildings[bd].name === building){
 						for(var rm in hqs[hq].buildings[bd].rooms){
-							if(hqs[hq].buildings[bd].rooms[rm].name === 'Soda'){
+							if(hqs[hq].buildings[bd].rooms[rm].name === room){
 								callback(hqs[hq].buildings[bd].rooms[rm].assets);
 								break;
 							}
